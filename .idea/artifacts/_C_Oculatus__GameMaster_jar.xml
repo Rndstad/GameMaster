@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="[C-Oculatus] GameMaster:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/_C_Oculatus__GameMaster_jar</output-path>
+    <root id="archive" name="[C-Oculatus] GameMaster.jar">
+      <element id="module-output" name="[C-Oculatus] GameMaster" />
+    </root>
+  </artifact>
+</component>

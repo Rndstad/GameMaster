@@ -1,0 +1,113 @@
+main: net.amoebaman.gamemasterv3.GameMaster
+
+name: GameMaster
+version: 3.1
+softdepend: [Votifier, Herochat, Vault, StatMaster, KitMaster]
+authors: [Randstad, AmoebaMan]
+description: Schedules and runs autonomous events/minigames
+
+commands:
+
+  game:
+    aliases: [g]
+    description: Displays the status of the current game
+    usage: /game
+  vote:
+    aliases: [v, votenext]
+    description: Votes for the next game
+    usage: /votenext <game>
+  charge:
+    aliases: [c, charge]
+    description: Shows information about charges
+    usage: /charges [sub-cmd]
+  teamchat:
+    aliases: [team]
+    description: Toggles team-exclusive chat on or off
+    usage: /teamchat
+  fixme:
+    aliases: [fix, unstuck]
+    description: Fixes players stuck in blocks
+    usage: /fixme
+    
+  join:
+    description: Enters the game
+    usage: /enter
+    permission: gamemaster.join
+  watch:
+    description: Enters spectation mode
+    usage: /spectate
+    permission: gamemaster.watch
+  leave:
+    description: Exits the game
+    usage: /exit
+    permission: gamemaster.leave
+    
+  endgame:
+    aliases: [end]
+    description: Ends the current game
+    usage: /endgame
+    permission: gamemaster.end
+  nextgame:
+    description: Sets the next game to be played
+    usage: /nextgame <game>
+    permission: gamemaster.nextgame
+  nextmap:
+    description: Sets the next map to be played
+    usage: /nextmap <map>
+    permission: gamemaster.nextmap
+    
+  patch:
+    description: Restarts the server with a patch message
+    usage: /patch
+    permission: gamemaster.patch
+  gm-debug-cycle:
+    description: Signals the plugin to print debugging info for once cycle of its recurring ops
+    usage: /gm-debug-cycle
+    permission: gamemaster.debug
+  setlobby:
+    description: Sets the lobby spawn location
+    permission: gamemaster.admin
+  setfireworks:
+    description: Sets the fireworks launch location
+    permission: gamemaster.admin
+  setwelcome:
+    description: Sets the welcome spawn location
+    permission: gamemaster.admin
+  changeteam:
+    aliases: [change]
+    description: Changes the given player's team
+    usage: /swapteam [player]
+    permission: gamemaster.teams
+  balanceteams:
+    aliases: [balance]
+    description: Toggles automatic team balancing
+    usage: /balanceteams
+    permission: gamemaster.teams
+    
+  game-map:
+    aliases: [gamemap, map, mapedit, editmap]
+    description: Root command for map editing
+    usage: /game-map <...>
+    permission: gamemaster.maps
+    
+  tester:
+    
+permissions:
+  gamemaster.globalkit:
+    description: Allows users to take kits from anywhere in the map
+  gamemaster.moderator:
+    description: Permissions group for GameMaster moderators
+    children:
+      gamemaster.end: true
+      gamemaster.nextgame: true
+      gamemaster.nextmap: true
+  gamemaster.admin:
+    description: Permissions group for GameMaster administrators
+    default: op
+    children:
+      gamemaster.moderator: true
+      gamemaster.watch: true
+      gamemaster.leave: true
+      gamemaster.patch: true
+      gamemaster.debug: true
+      gamemaster.globalkit: true
