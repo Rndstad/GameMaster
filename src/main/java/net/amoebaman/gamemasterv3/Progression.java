@@ -20,7 +20,7 @@ import net.amoebaman.amoebautils.chat.Chat;
 import net.amoebaman.amoebautils.chat.Message;
 import net.amoebaman.amoebautils.chat.Scheme;
 
-public class Progression{
+public class Progression {
 	
 	private AutoGame forcedNextGame;
 	private Queue<AutoGame> gameHistory = new ArrayDeque<AutoGame>();
@@ -155,6 +155,8 @@ public class Progression{
 		/*
 		 * Broadcast
 		 */
+		System.out.println("MapVoting: " + mapVoting);
+		System.out.println("Game: " + master.getActiveGame());
 		Chat.broadcast(new Message(Scheme.HIGHLIGHT).t(master.getActiveGame()).s().t(" will start in ").t((intermission - gameVoting) + " seconds").s(), new Message(Scheme.HIGHLIGHT).t("Voting on the next map is open for ").t(mapVoting + " seconds").s(), new Message(Scheme.HIGHLIGHT).t("CLICK HERE").s().command("/vote").t(" to vote on the next map"));
 		/*
 		 * Schedule the next phase

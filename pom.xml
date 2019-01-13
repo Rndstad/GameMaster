@@ -55,7 +55,7 @@
         <dependency>
             <groupId>com.github.Rndstad</groupId>
             <artifactId>Utils</artifactId>
-            <version>0339a7e830</version>
+            <version>25051b8309</version>
         </dependency>
         <dependency>
             <groupId>net.milkbowl.vault</groupId>
