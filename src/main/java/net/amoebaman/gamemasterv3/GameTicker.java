@@ -95,7 +95,7 @@ public class GameTicker implements Runnable{
 					.t(" - ")
 					.t(mins + ":" + (seconds % 60 < 10 ? "0" + (seconds % 60) : seconds % 60)).s()
 					.toString();
-				StatusBar.setAllStatusBars(status, 1.0f * seconds / (game.getGameLength() * 60), 1);
+				// StatusBar.setAllStatusBars(status, 1.0f * seconds / (game.getGameLength() * 60), 1);
 				
 				if(millis <= 1000)
 					game.end();
@@ -121,10 +121,10 @@ public class GameTicker implements Runnable{
 				else
 					status.t("the next game");
 				
-				StatusBar.setAllStatusBars(status.toString(), (System.currentTimeMillis() - master.getGameStart()) / (master.getProgression().getIntermissionLength() * 1000f), 1);
+				// StatusBar.setAllStatusBars(status.toString(), (System.currentTimeMillis() - master.getGameStart()) / (master.getProgression().getIntermissionLength() * 1000f), 1);
 			}		
 		else
-			StatusBar.removeAllStatusBars();
+			// StatusBar.removeAllStatusBars();
 		/*
 		 * Update player names
 		 */

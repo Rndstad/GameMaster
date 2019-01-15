@@ -138,14 +138,14 @@ public class CommandListener{
 				 * TODO get rid of hardcoded links 
 				 */
 			new Message(Scheme.HIGHLIGHT)
-				.then("  Click here to vote on PlanetMinecraft")
-					.link("http://bit.ly/landwarvotepmc"),
+				.then(master.getConfig().getString("titles.vote-1"))
+					.link(master.getConfig().getString("links.vote-1")),
 			new Message(Scheme.HIGHLIGHT)
-				.then("  Click here to vote on MineStatus")
-					.link("http://bit.ly/landwarvotems"),
+				.then(master.getConfig().getString("titles.vote-2"))
+					.link(master.getConfig().getString("links.vote-2")),
 			new Message(Scheme.HIGHLIGHT)
-				.then("  Check here to vote on MinecraftServerList")
-					.link("http://bit.ly/landwarvotemcsl"),
+				.then(master.getConfig().getString("titles.vote-3"))
+					.link(master.getConfig().getString("links.vote-3")),
 			new Message(Scheme.HIGHLIGHT)
 				.then("Use charges to power up your kits with ")
 				.then("/charges use").strong()

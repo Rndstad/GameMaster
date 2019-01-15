@@ -6,3 +6,13 @@ currency:
     cost-to-charge: 1
     reward-per-vote: 1
 wrap-server: false
+
+titles:
+  vote-1: "  Click here to vote on PlanetMinecraft"
+  vote-2: "  Click here to vote on MineStatus"
+  vote-3: "  Check here to vote on MinecraftServerList"
+
+links:
+  vote-1: "http://bit.ly/landwarvotepmc"
+  vote-2: "http://bit.ly/landwarvotems"
+  vote-3: "http://bit.ly/landwarvotemcsl"
