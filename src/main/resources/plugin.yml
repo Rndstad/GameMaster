@@ -5,6 +5,7 @@ version: 3.1
 softdepend: [Votifier, Herochat, Vault, StatMaster, KitMaster]
 authors: [Randstad, AmoebaMan]
 description: Schedules and runs autonomous events/minigames
+api-version: 1.13
 
 commands:
 

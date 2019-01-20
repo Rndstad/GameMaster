@@ -120,41 +120,47 @@ public class CommandListener{
 	}
 	
 	@CommandHandler(cmd = "charge")
-	public Object chargesCmd(CommandSender sender, String[] args){
-		if(!Depend.hasEconomy() || !Depend.hasKitMaster())
+	public Object chargesCmd(CommandSender sender, String[] args) {
+		if (!Depend.hasEconomy() || !Depend.hasKitMaster())
 			return new Message(Scheme.ERROR)
-				.t("This feature is not available");
+					.t("This feature is not available");
 		Economy econ = Depend.getEconomy();
 		return Align.addSpacers("", Lists.newArrayList(
-			new Message(Scheme.HIGHLIGHT)
-				.then("You have ")
-				.then(econ.getBalance(sender.getName())).strong()
-				.then(" " + econ.currencyNamePlural()),
-			new Message(Scheme.HIGHLIGHT)
-				.then("It costs ")
-				.then(master.getConfig().getDouble("currency.cost-to-charge")).s()
-				.then(" " + econ.currencyNamePlural() + " to charge a kit"),
-				/* 
-				 * TODO get rid of hardcoded links 
+				new Message(Scheme.HIGHLIGHT)
+						.then("You have ")
+						.then(econ.getBalance(sender.getName())).strong()
+						.then(" " + econ.currencyNamePlural()),
+				new Message(Scheme.HIGHLIGHT)
+						.then("It costs ")
+						.then(master.getConfig().getDouble("currency.cost-to-charge")).s()
+						.then(" " + econ.currencyNamePlural() + " to charge a kit"),
+				/*
+				 * TODO get rid of hardcoded links
 				 */
-			new Message(Scheme.HIGHLIGHT)
-				.then(master.getConfig().getString("titles.vote-1"))
-					.link(master.getConfig().getString("links.vote-1")),
-			new Message(Scheme.HIGHLIGHT)
-				.then(master.getConfig().getString("titles.vote-2"))
-					.link(master.getConfig().getString("links.vote-2")),
-			new Message(Scheme.HIGHLIGHT)
-				.then(master.getConfig().getString("titles.vote-3"))
-					.link(master.getConfig().getString("links.vote-3")),
-			new Message(Scheme.HIGHLIGHT)
-				.then("Use charges to power up your kits with ")
-				.then("/charges use").strong()
-					.tooltip(Scheme.NORMAL.normal + "Click here to use a charge")
-					.command("/charges use"),
-			new Message(Scheme.HIGHLIGHT)
-				.then("Get info about a charged kit with ")
-				.then("/charges info <kit>").strong()
-					.suggest("/charges info <kit>")
+				new Message(Scheme.HIGHLIGHT)
+						.then(master.getConfig().getString("titles.vote-1"))
+						.link(master.getConfig().getString("links.vote-1")),
+				new Message(Scheme.HIGHLIGHT)
+						.then(master.getConfig().getString("titles.vote-2"))
+						.link(master.getConfig().getString("links.vote-2")),
+				new Message(Scheme.HIGHLIGHT)
+						.then(master.getConfig().getString("titles.vote-3"))
+						.link(master.getConfig().getString("links.vote-3")),
+				new Message(Scheme.HIGHLIGHT)
+						.then(master.getConfig().getString("titles.vote-4"))
+						.link(master.getConfig().getString("links.vote-4")),
+				new Message(Scheme.HIGHLIGHT)
+						.then(master.getConfig().getString("titles.vote-5"))
+						.link(master.getConfig().getString("links.vote-5")),
+				new Message(Scheme.HIGHLIGHT)
+						.then("Use charges to power up your kits with ")
+						.then("/charges use").strong()
+						.tooltip(Scheme.NORMAL.normal + "Click here to use a charge")
+						.command("/charges use"),
+				new Message(Scheme.HIGHLIGHT)
+						.then("Get info about a charged kit with ")
+						.then("/charges info <kit>").strong()
+						.suggest("/charges info <kit>")
 		));
 	}
 	
@@ -190,7 +196,7 @@ public class CommandListener{
 		 * Make sure we've got a valid state to charge up to
 		 */
 		if(charged == null)
-			return new Message(Scheme.ERROR).then("Your kit doesn't have a charged state available");
+			return new Message(Scheme.ERROR).then("Your kit doesn't have a charged state available").then(" Kit: " + last);
 		/*
 		 * Subtract the currency and give them the charged kit
 		 */
