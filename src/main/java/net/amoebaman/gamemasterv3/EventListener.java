@@ -418,7 +418,7 @@ public class EventListener implements Listener{
 			PotionEffectType.WEAKNESS,
 			PotionEffectType.WITHER
 			);
-		List<PotionEffect> effects = thrownEffects.remove(potion.getUniqueId());
+		List<PotionEffect> effects = new ArrayList<PotionEffect>(thrownEffects.remove(potion.getUniqueId()));
 		for(PotionEffect effect : effects)
 			if(harms.contains(effect.getType()))
 				harmful = true;

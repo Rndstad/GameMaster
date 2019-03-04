@@ -3,6 +3,7 @@ package net.amoebaman.gamemasterv3;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.bringholm.nametagchanger.NameTagChanger;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -134,6 +135,8 @@ public class Players implements Listener{
 				colorName = c + player.getName() + ChatColor.RESET;
 		}
 		player.setDisplayName(colorName);
+		player.setPlayerListName(colorName);
+		NameTagChanger.INSTANCE.changePlayerName(player, colorName);
 	}
 	
 	/**

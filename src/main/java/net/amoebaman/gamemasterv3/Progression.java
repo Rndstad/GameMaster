@@ -169,36 +169,39 @@ public class Progression {
 		}, mapVoting * 20);
 	}
 	
-	private void endMapVoting(){
+	private void endMapVoting() {
 		/*
 		 * Choose the map (at random if no vote were cast)
 		 */
 		GameMap mostVoted = master.getMap(master.getMostVoted());
-		if(mostVoted == null){
+		if (mostVoted == null) {
 			master.setActiveMap(AmoebaUtils.getRandomElement(master.getMaps(master.getActiveGame())));
+            System.out.println("Active Map: " + master.getActiveMap());
 			new Message(Scheme.HIGHLIGHT).then("No votes were cast - randomly choosing a map").broadcast();
-		}
-		else
+		} else {
 			master.setActiveMap(mostVoted);
+            System.out.println("Active Map: " + master.getActiveMap());
+		}
 		/*
 		 * Override that above if a game was determined manually
 		 */
-		if(forcedNextMap != null)
+		if (forcedNextMap != null)
 			master.setActiveMap(forcedNextMap);
+        System.out.println("Active Map: " + master.getActiveMap());
 		/*
 		 * Broadcast
 		 */
 		Chat.broadcast(
-			new Message(Scheme.HIGHLIGHT)
-				.t(master.getActiveGame()).s()
-				.t(" on ").t(master.getActiveMap()).s()
-				.t(" will start in ")
-				.t((intermission - gameVoting - mapVoting) + " seconds").s(),
-			new Message(Scheme.HIGHLIGHT)
-				.t("Prepare for battle"));
-		Bukkit.getScheduler().scheduleSyncDelayedTask(master, new Runnable(){
-			
-			public void run(){
+				new Message(Scheme.HIGHLIGHT)
+						.t(master.getActiveGame()).s()
+						.t(" on ").t(master.getActiveMap().getName()).s()
+						.t(" will start in ")
+						.t((intermission - gameVoting - mapVoting) + " seconds").s(),
+				new Message(Scheme.HIGHLIGHT)
+						.t("Prepare for battle"));
+		Bukkit.getScheduler().scheduleSyncDelayedTask(master, new Runnable() {
+
+			public void run() {
 				startNextGame();
 			}
 		}, (intermission - gameVoting - mapVoting) * 20);

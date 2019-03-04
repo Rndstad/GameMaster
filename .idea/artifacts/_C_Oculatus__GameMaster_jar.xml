@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/_C_Oculatus__GameMaster_jar</output-path>
     <root id="archive" name="[C-Oculatus] GameMaster.jar">
       <element id="module-output" name="[C-Oculatus] GameMaster" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/bringholm/nametagchanger/NameTagChanger/1.1-SNAPSHOT/NameTagChanger-1.1-20180626.134615-23.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
