@@ -136,6 +136,7 @@ public class Players implements Listener{
 		}
 		player.setDisplayName(colorName);
 		player.setPlayerListName(colorName);
+		NameTagChanger.INSTANCE.resetPlayerName(player);
 		NameTagChanger.INSTANCE.changePlayerName(player, colorName);
 	}
 	
